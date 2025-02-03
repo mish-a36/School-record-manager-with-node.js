@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Records</title>
+  <style>
+    /* Reset some default styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling for centering and background */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      color: #333;
+    }
+
+    /* Header styling */
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* Link for adding a new student */
+    a[href="/students/new"] {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: #4CAF50;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    a[href="/students/new"]:hover {
+      text-decoration: underline;
+    }
+
+    /* Styling for student list */
+    ul {
+      list-style-type: none;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    li {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    /* Styling for edit and delete links/buttons */
+    a, button {
+      color: #4CAF50;
+      font-size: 0.9em;
+      margin-left: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    a:hover, button:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: inline;
+    }
+
+    button {
+      color: #e63946;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    button:hover {
+      color: #d62828;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Records</h1>
+  <a href="/students/new">Add New Student</a>
+  <ul>
+    <% students.forEach(student => { %>
+      <li>
+        <span><%= student.name %> - Grade: <%= student.grade %> - Age: <%= student.age %></span>
+        <span>
+          <a href="/students/<%= student._id %>/edit">Edit</a>
+          <form action="/students/<%= student._id %>/delete" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </span>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
+

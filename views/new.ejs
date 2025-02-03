@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Student</title>
+  <style>
+    /* Reset some default styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Center the form on the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+
+    /* Container styling */
+    .container {
+      max-width: 400px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      margin-top: 15px;
+      display: inline-block;
+      color: #4CAF50;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add New Student</h1>
+    <form action="/students" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="grade" placeholder="Grade" required>
+      <input type="number" name="age" placeholder="Age" required>
+      <button type="submit">Add Student</button>
+    </form>
+    <a href="/">Back</a>
+  </div>
+</body>
+</html>
